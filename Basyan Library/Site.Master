@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Basyan_Library.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Basyan Library</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        .MainMenu {
+            margin: 3px;
+            font-size: medium;
+            padding: 3px;
+        }
+
+            .MainMenu a {
+                color: white;
+                background-color: navy;
+                border: 5px solid white;
+                margin: 3px;
+                padding: 3px;
+            }
+
+            .MainMenu ul {
+                background-color: navy;
+            }
+
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="MainMenu">
+            <asp:Label ID="lblWelcome" runat="server"></asp:Label>
+            <asp:LinkButton ID="lnkLogout" runat="server" Text="Logout" OnClick="lnkLogout_Click"></asp:LinkButton>
+            <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/Login.aspx" Text="Login"></asp:HyperLink>
+            <asp:HyperLink ID="lnkViewLibrary" runat="server" NavigateUrl="~/User/ViewLibrary.aspx" Text="View Library"></asp:HyperLink>
+            <!--    <asp:Menu ID="Menu" runat="server" DataSourceID="SiteMapDataSource" CssClass="MainMenu"
+                Orientation="Horizontal"></asp:Menu> -->
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" ShowStartingNode="false" />
+    </form>
+</body>
+</html>
